@@ -57,6 +57,8 @@ function playGame() {
     let winner = () => {
         if (humanScore > computerScore) {
         return `You won! ${humanScore} : ${computerScore}`
+        } else if (humanScore === computerScore) {
+            return `Tie. ${computerScore} : ${humanScore}`
         } else {
             return `You lost. ${computerScore} : ${humanScore}`
         }
