@@ -21,7 +21,7 @@ function getComputerChoice() {
 function getHumanChoice() {
     let humanChoice = prompt('Choice: Rock, Paper, Scissors')
 
-    return humanChoice.at(0).toUpperCase() + humanChoice.slice(1);
+    return humanChoice.at(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 }
 
 // Plays the game
