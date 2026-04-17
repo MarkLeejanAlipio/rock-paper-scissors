@@ -46,7 +46,7 @@ function playGame() {
     }
 
     // Loops the game to 5 rounds 
-    for (i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
 
