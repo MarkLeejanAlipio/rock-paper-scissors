@@ -1,0 +1,37 @@
+.title {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.choice {
+    border: none;
+    border-radius: 8px;
+    background-color: aqua;
+    padding: 50px;
+}
+
+.choice img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid black;    
+    cursor: pointer;
+}
+
+.choice-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.human-choice, .computer-choice {
+    padding: 10px 20px;
+    background-color: aqua;
+}
