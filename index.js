@@ -17,18 +17,23 @@ function getComputerChoice() {
     }
 }
 
-// Get human choice
-// function getHumanChoice() {
-//     
-
-//     return humanChoice.at(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
-// }
-
 // Plays the game
 function playGame() {
     // Scores
     let humanScore = 0;
     let computerScore = 0;
+    let round = 0;
+    
+    // Declares the winner
+    let winner = () => {
+        if (humanScore > computerScore) {
+        return `You won! ${humanScore} : ${computerScore}`
+        } else if (humanScore === computerScore) {
+            return `Tie. ${computerScore} : ${humanScore}`
+        } else {
+            return `You lost. ${computerScore} : ${humanScore}`
+        }
+    }
     
     // Plays the round
     function playRound(humanChoice, computerChoice) {
@@ -45,16 +50,27 @@ function playGame() {
         }
     }
 
-    // Declares the winner
-    let winner = () => {
-        if (humanScore > computerScore) {
-        return `You won! ${humanScore} : ${computerScore}`
-        } else if (humanScore === computerScore) {
-            return `Tie. ${computerScore} : ${humanScore}`
-        } else {
-            return `You lost. ${computerScore} : ${humanScore}`
-        }
-    } 
-}
+    // DOM
+    const buttons = document.querySelectorAll('.choice')
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const humanChoice = button.dataset.choice;
+            const computerChoice = getComputerChoice();
+            const container = document.querySelector('.result-container');
+    
+            const result = playRound(humanChoice, computerChoice);
+            const resultChoice = document.querySelector('.result')
+            resultChoice.textContent = `Round result: ${result}`;
 
+            round++;
+            if (round === 5) {
+                buttons.forEach(button => button.disabled = true);
+                const winnerEl = document.createElement('p');
+                winnerEl.classList.add('result');
+                winnerEl.textContent = `Game result: ${winner()}`;
+                container.appendChild(winnerEl)
+            }
+        })
+    })
+}
 playGame();
