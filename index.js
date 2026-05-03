@@ -31,6 +31,7 @@ function getHumanChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+    let round = 5;
 
     function playRound(humanChoice, computerChoice) {
         if (
@@ -48,7 +49,7 @@ function playGame() {
         }
     }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < round; i++) {
         console.log(playRound(getHumanChoice(), getComputerChoice()));
     }
 
