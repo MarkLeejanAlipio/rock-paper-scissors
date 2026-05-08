@@ -24,6 +24,27 @@ main {
     gap: 50px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pa-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(95, 95, 249);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pa-btn:hover {
+    opacity: 0.8;
+}
+
 .game-title {
     text-align: center;
     font-weight: bold;

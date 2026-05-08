@@ -12,7 +12,8 @@ let hScore = document.querySelector('.human-score');
 let cScore = document.querySelector('.computer-score');
 const roundResult = document.querySelector('.round-result');
 const roundPlaceholder = document.querySelector('.round-result > *:first-child');
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.choices button');
+const paBtn = document.querySelector('.pa-btn')
 
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3);
@@ -72,6 +73,35 @@ function playGame() {
 
     const gameResult = document.createElement('p')
     gameResult.classList.add('show-choice')
+    resultContainer.style.display = 'none';
+    roundWinner.style.display = 'none';
+    gameResult.style.display = 'none';
+    roundResult.append(resultContainer, roundWinner, gameResult);
+
+    function resetGame() {
+        humanScore = 0;
+        computerScore = 0;
+
+        hScore.textContent = 0;
+        cScore.textContent = 0;
+
+        roundPlaceholder.style.display = '';
+        resultContainer.style.display = 'none';
+        roundWinner.style.display = 'none';
+        gameResult.style.display = 'none';
+
+        humanResultChoice.textContent = '';
+        humanResult.textContent = '';
+        computerResultChoice.textContent = '';
+        computerResult.textContent = '';
+        roundWinner.textContent = '';
+        gameResult.textContent = '';
+
+        buttons.forEach((button) => {
+            button.disabled = false;
+        });
+    }
+
     buttons.forEach(button => {
         button.addEventListener('click', event => {
             const humanChoice = event.currentTarget.querySelector('.choice').textContent;
@@ -81,12 +111,13 @@ function playGame() {
             cScore.textContent = computerScore;
 
             roundPlaceholder.style.display = 'none';
+            resultContainer.style.display = 'flex';
+            roundWinner.style.display = 'block';
             humanResultChoice.textContent = 'YOU CHOSE';
             humanResult.textContent = humanChoice;
             computerResultChoice.textContent = 'COMPUTER CHOSE'
             roundWinner.textContent = roundMessage;
             computerResult.textContent = computerChoice;
-            roundResult.append(resultContainer, roundWinner);
 
             if (humanScore === 5 || computerScore === 5) {
                 buttons.forEach((button) => {
@@ -94,13 +125,16 @@ function playGame() {
                 });
                 if (humanScore > computerScore) {
                     gameResult.textContent = "You WON!";
-                    roundResult.append(gameResult);
                 } else {
                     gameResult.textContent = "You lost...";
-                    roundResult.append(gameResult);
                 }
+                gameResult.style.display = 'block';
             }
         })
     })
+
+    if (paBtn) {
+        paBtn.addEventListener('click', resetGame);
+    }
 }
 playGame();
