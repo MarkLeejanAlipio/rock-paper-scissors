@@ -8,8 +8,8 @@ CREATE a function that will play the game for 5 rounds
     make a for loop until i is greater than 5
     log the winner if the loop is done
 */
-let hScore = document.querySelector('.human-score');
-let cScore = document.querySelector('.computer-score');
+const hScore = document.querySelector('.human-score');
+const cScore = document.querySelector('.computer-score');
 const roundResult = document.querySelector('.round-result');
 const roundPlaceholder = document.querySelector('.round-result > *:first-child');
 const buttons = document.querySelectorAll('.choices button');
