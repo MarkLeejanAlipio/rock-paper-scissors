@@ -7,21 +7,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="title">Rock Paper Scissors</h1>
-    <div class="container">
-        <button class="choice" data-choice="Rock">
-            <img src="images/rock.png" alt="Rock">
-        </button>
-        <button class="choice" data-choice="Paper">
-            <img src="images/paper.jpg" alt="Paper">
-        </button>
-        <button class="choice" data-choice="Scissors">
-            <img src="images/scissors.jpg" alt="Scissors">
-        </button>
-    </div>
-    <div class="result-container">
-        <p class="result">?</p>
-    </div>
+    <main>
+        <h1 class="game-title">RPS ARENA</h1>
+        <div class="scores">
+            <div class="player-info">
+                <p class="player">YOU</p>
+                <p class="score"></p>
+            </div>
+            <p>VS</p>
+            <div class="player-info">
+                <p class="player">YOU</p>
+                <p class="score"></p>
+            </div>
+        </div>
+        <div class="round-result">
+            CHOOSE YOUR MOVE
+        </div>
+        <div class="choices">
+            <button class="choice-info">
+                <p class="choice">🪨</p>
+                <p class="choice-name">ROCK</p>                
+            </button>
+            <button class="choice-info">
+                <p class="choice">📃</p>
+                <p class="choice-name">PAPER</p>                
+            </button>
+            <button class="choice-info">
+                <p class="choice">✂️</p>
+                <p class="choice-name">SCISSOR</p>                
+            </button>
+        </div>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>
