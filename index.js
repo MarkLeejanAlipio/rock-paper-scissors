@@ -66,14 +66,17 @@ function playGame() {
     humanBox.append(humanResultChoice, humanResult)
     computerBox.append(computerResultChoice, computerResult)
     resultContainer.append(humanBox, computerBox)
-
+    // element for who won the round
     const roundWinner = document.createElement('p')
     roundWinner.classList.add('show-choice')
+
+    const gameResult = document.createElement('p')
+    gameResult.classList.add('show-choice')
     buttons.forEach(button => {
         button.addEventListener('click', event => {
             const humanChoice = event.currentTarget.querySelector('.choice').textContent;
             const computerChoice = getComputerChoice();
-            playRound(humanChoice, computerChoice)
+            const roundMessage = playRound(humanChoice, computerChoice);
             hScore.textContent = humanScore;
             cScore.textContent = computerScore;
 
@@ -81,9 +84,22 @@ function playGame() {
             humanResultChoice.textContent = 'YOU CHOSE';
             humanResult.textContent = humanChoice;
             computerResultChoice.textContent = 'COMPUTER CHOSE'
-            roundWinner.textContent = playRound(humanChoice, computerChoice);
+            roundWinner.textContent = roundMessage;
             computerResult.textContent = computerChoice;
             roundResult.append(resultContainer, roundWinner);
+
+            if (humanScore === 5 || computerScore === 5) {
+                buttons.forEach((button) => {
+                    button.disabled = true;
+                });
+                if (humanScore > computerScore) {
+                    gameResult.textContent = "You WON!";
+                    roundResult.append(gameResult);
+                } else {
+                    gameResult.textContent = "You lost...";
+                    roundResult.append(gameResult);
+                }
+            }
         })
     })
 }
