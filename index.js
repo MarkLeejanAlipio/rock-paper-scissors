@@ -61,5 +61,11 @@ function playGame() {
         }
     };
     console.log(winner());
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            playRound(getHumanChoice(button.id), getComputerChoice())
+        })
+    })
 }
 playGame();
