@@ -8,6 +8,11 @@ CREATE a function that will play the game for 5 rounds
     make a for loop until i is greater than 5
     log the winner if the loop is done
 */
+const hScore = document.querySelector('.human-score');
+const cScore = document.querySelector('.computer-score');
+const roundResult = document.querySelector('.round-result');
+const buttons = document.querySelectorAll('button');
+
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3);
 
@@ -16,22 +21,19 @@ function getComputerChoice() {
     } else if (randomChoice === 2) {
         randomChoice = "Paper";
     } else {
-        randomChoice = "Scissors";
+        randomChoice = "Scissor";
     }
 
     return randomChoice;
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("Choice");
-
+function getHumanChoice(humanChoice) {
     return humanChoice.at(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 }
 
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
-    let round = 5;
 
     function playRound(humanChoice, computerChoice) {
         if (
@@ -47,10 +49,6 @@ function playGame() {
             computerScore++;
             return `You lost. ${computerChoice} beats ${humanChoice}`;
         }
-    }
-
-    for (let i = 0; i < round; i++) {
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
     }
 
     const winner = () => {
