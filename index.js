@@ -47,32 +47,43 @@ function playGame() {
             return `You lost. ${computerChoice} beats ${humanChoice}`;
         }
     }
-
-    // const winner = () => {
-    //     if (humanScore > computerScore) {
-    //         return `Game over. You won! ${humanScore} : ${computerScore}`;
-    //     } else if (humanScore === computerScore) {
-    //         return `Tie. ${humanScore} : ${computerScore}`;
-    //     } else {
-    //         return `You lost. ${computerScore} : ${humanScore}`;
-    //     }
-    // };
-
+    // Creats a container that shows each player's choice
     const resultContainer = document.createElement('div')
-    const resultChoice = document.createElement('p')
+    resultContainer.classList.add('result-container')
+    // Shows what each player chose
+    const humanBox = document.createElement('div')
+    humanBox.classList.add('result-box')
+    const humanResultChoice = document.createElement('p')
+    humanResultChoice.classList.add('result-choice')
     const humanResult = document.createElement('p')
+    humanResult.style.fontSize = '60px';
+    const computerBox = document.createElement('div')
+    computerBox.classList.add('result-box')
+    const computerResultChoice = document.createElement('p')
+    computerResultChoice.classList.add('result-choice')
+    const computerResult = document.createElement('p')
+    computerResult.style.fontSize = '60px';
+    humanBox.append(humanResultChoice, humanResult)
+    computerBox.append(computerResultChoice, computerResult)
+    resultContainer.append(humanBox, computerBox)
+
+    const roundWinner = document.createElement('p')
+    roundWinner.classList.add('show-choice')
     buttons.forEach(button => {
         button.addEventListener('click', event => {
             const humanChoice = event.currentTarget.querySelector('.choice').textContent;
-            playRound(humanChoice, getComputerChoice())
+            const computerChoice = getComputerChoice();
+            playRound(humanChoice, computerChoice)
             hScore.textContent = humanScore;
             cScore.textContent = computerScore;
 
             roundPlaceholder.style.display = 'none';
-            resultChoice.textContent = 'YOU CHOOSE'
+            humanResultChoice.textContent = 'YOU CHOSE';
             humanResult.textContent = humanChoice;
-            resultContainer.append(resultChoice ,humanResult);
-            roundResult.appendChild(resultContainer);
+            computerResultChoice.textContent = 'COMPUTER CHOSE'
+            roundWinner.textContent = playRound(humanChoice, computerChoice);
+            computerResult.textContent = computerChoice;
+            roundResult.append(resultContainer, roundWinner);
         })
     })
 }
