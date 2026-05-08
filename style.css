@@ -1,38 +1,134 @@
-.title {
-    text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.container {
+body {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    height: 100vh;
+    width: auto;
+    background-color: rgb(247, 247, 247);
+}
+
+main {
+    width: 800px;
+    height: auto;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.game-title {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: blue;
+}
+
+/* Scores */
+.scores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.scores .vs {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    color: grey;
+}
+
+.player-info {
+    background-color: white;
+    width: 250px;
+    height: auto;
     padding: 20px;
+    border: 0.5px solid grey;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.player {
+    font-size: 13px;
+    color: grey;
+    font-weight: bold;
+}
+
+.human-score, .computer-score {
+    font-size: 60px;
+}
+
+.human-score {
+    color: blue;
+}
+
+.computer-score {
+    color: red;
+}
+
+/* Result */
+.round-result {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.round-result p {
+    font-size: 30px;
+    font-weight: bold;
+    color: grey;
+    letter-spacing: 2px;
+}
+
+/* Choices */
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.choice-info {
+    flex: 1;
+    padding: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 0.5px solid grey;
 }
 
 .choice {
-    border: none;
-    border-radius: 8px;
-    background-color: aqua;
-    padding: 50px;
-}
-
-.choice img {
-    width: 150px;
-    height: 150px;
+    font-size: 60px;
+    background-color: white;
     border-radius: 50%;
-    border: 1px solid black;    
-    cursor: pointer;
+    padding: 50px;
+    margin-bottom: 20px;
 }
 
-.result-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+.choice-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(51, 51, 51);
 }
 
-.result {
-    padding: 10px 20px;
-    background-color: aqua;
+#rock {
+    background-color: #64748B;
+}
+
+#paper {
+    background-color: rgb(177, 177, 255);
+}
+
+#scissor {
+    background-color: rgb(247, 112, 112);
 }
