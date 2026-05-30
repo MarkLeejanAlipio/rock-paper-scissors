@@ -1,13 +1,3 @@
-/* 
-CREATE a function that generates a random number between 0 and 2 and assign that into ROCK, PAPER, or SCISSOR
-CREATE a function that asks a user for their choice
-    make choice case-insensitive
-DECLARE two variables to keep track of scores and set it to 0
-CREATE a function that takes human and computer choice as arguments, plays a single round, while incrementing the winner's score and logging the winner
-CREATE a function that will play the game for 5 rounds
-    make a for loop until i is greater than 5
-    log the winner if the loop is done
-*/
 const hScore = document.querySelector('.human-score');
 const cScore = document.querySelector('.computer-score');
 const roundResult = document.querySelector('.round-result');
